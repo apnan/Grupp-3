@@ -1,5 +1,5 @@
 
->>>>>>> 8afa7387b7746594002f58d5ac576fc765bf4b36
+
 Try to make a conflict  
 Slove the problem  
 Dealing with conflicts  
@@ -9,4 +9,4 @@ lets solve this problem
 helooooooo  
 We want to have a conflict  
 New line by Hanna  
->>>>>>> 40662654cb42486e7023f2711fe8687ed0f079b4
+
