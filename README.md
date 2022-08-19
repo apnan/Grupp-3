@@ -1,4 +1,17 @@
+<<<<<<< HEAD
 Hello again
+=======
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+
+<p>&#128512;</p>
+
+</body>
+</html>
+>>>>>>> 580d7c5ca313c56a2c2a113d1dc518c23f4c1136
 Trying to solve conflict
 
 Try to make a conflict  
