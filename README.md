@@ -1,3 +1,4 @@
+Hello again
 Trying to solve conflict
 
 Try to make a conflict  
