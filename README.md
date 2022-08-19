@@ -1,3 +1,13 @@
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+
+<p>&#128512;</p>
+
+</body>
+</html>
 Trying to solve conflict
 
 Try to make a conflict  
