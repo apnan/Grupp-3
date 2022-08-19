@@ -1,4 +1,4 @@
-make conflict    
+Create conflict    
 Slove the problem  
 Dealing with conflicts  
 Let's have a break  
