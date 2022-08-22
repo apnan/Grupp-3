@@ -1,5 +1,13 @@
 ```mermaid
 sequenceDiagram
+    Client->>NodeJS: Login with Credentials
+    NodeJS->>MongoDB: Verify User Credentials!
+    MongoDB-->>NodeJS: Verified success
+    NodeJS-->>Client: Cleint rediects to home page
+```
+
+```mermaid
+sequenceDiagram
     par Alice to Bob
         Alice->>Bob: Hello guys!
     and Alice to John
