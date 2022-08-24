@@ -1,4 +1,13 @@
 
+
+```mermaid
+sequenceDiagram
+    Alice->>John: Hello John, how are you?
+    activate John
+    John-->>Alice: Great!
+    deactivate John
+
+```
 ```mermaid
 sequenceDiagram
     Client->>NodeJS: Login with Credentials
@@ -27,7 +36,7 @@ sequenceDiagram
 
 </body>
 </html>
-:
+
 Trying to solve conflict
 
 Try to make a conflict  
