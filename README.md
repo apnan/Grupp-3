@@ -1,4 +1,19 @@
+```mermaid
+sequenceDiagram
+    participant User
+    participant Registration Form
+    participant  Backend server
+    participant Databasae
 
+        
+
+   User ->>Registration Form: User details(name,email...)  
+   Registration Form->>Backend server: User Submit data with user deatils
+   Backend server->>Databasae: verify and save data
+   Databasae-->>Backend server: Sucess and faliure massage
+   Backend server-->>User: Redirect to Thank you or Failure message 
+   
+   ```
 
 ```mermaid
 sequenceDiagram
