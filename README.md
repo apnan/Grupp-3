@@ -1,11 +1,22 @@
 
-<<<<<<< HEAD
-ihi
-=======
-<<<<<<< HEAD
-Hello again
-=======
->>>>>>> 62f61ed1a2b1351475515921a5d333e47593de64
+```mermaid
+sequenceDiagram
+    Client->>NodeJS: Login with Credentials
+    NodeJS->>MongoDB: Verify User Credentials!
+    MongoDB-->>NodeJS: Verified success
+    NodeJS-->>Client: Cleint rediects to home page
+```
+
+```mermaid
+sequenceDiagram
+    par Alice to Bob
+        Alice->>Bob: Hello guys!
+    and Alice to John
+        Alice->>John: Hello guys!
+    end
+    Bob-->>Alice: Hi Alice!
+    John-->>Alice: Hi Alice!
+```
 <html>
 <head>
 <meta charset="UTF-8">
@@ -16,7 +27,7 @@ Hello again
 
 </body>
 </html>
->>>>>>> 580d7c5ca313c56a2c2a113d1dc518c23f4c1136
+:
 Trying to solve conflict
 
 Try to make a conflict  
