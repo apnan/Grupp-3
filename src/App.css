@@ -60,3 +60,7 @@
  .x{
 align-self: start;
  }
+
+ .wrapper {
+    padding: 20px;
+}
