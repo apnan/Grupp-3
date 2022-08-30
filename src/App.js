@@ -1,9 +1,8 @@
 import './App.css';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
-import ChooseProfilePicturePage from './screens/ChooseProfilePicturePage';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+import ChooseProfilePicturePage from './components/ChooseProfilePicturePage';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 function App() {
   return (
