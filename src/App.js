@@ -2,21 +2,21 @@ import './App.css';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
 import ChooseProfilePicturePage from './screens/ChooseProfilePicturePage';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 
 function App() {
   return (
     <div className="wrapper">
-      {/* <h1>Application</h1> */}
       <Router>
         <Switch>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
+          <Route path ='/' component={Dashboard} exact/>
+          <Route path="/login" component={Login}  exact/> 
+
+          
+        
         </Switch>
       </Router>
-      <Login />
       <ChooseProfilePicturePage />
     </div>
   );
