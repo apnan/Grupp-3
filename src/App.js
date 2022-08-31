@@ -1,24 +1,28 @@
 import './App.css';
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/Dashboard'; 
 import Login from './components/Login';
+import Register from './components/Register';
 import ChooseProfilePicturePage from './components/ChooseProfilePicturePage';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-  return (
-    <div className="wrapper">
-      {/* <h1>Application</h1> */}
-      <Router>
+    return ( <
+        div className = "wrapper">
+        <Router>
         <Switch>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-        </Switch>
-      </Router>
-      <Login />
-      <ChooseProfilePicturePage />
-    </div>
-  );
+        <Route path = '/'
+        component = { Dashboard }
+        exact / >
+        <Route path = "/login"
+        component = { Login }
+        exact / >
+        <Route path = "/register"
+        component = { Register }
+        exact / >
+        </Switch> </Router> { /* <ChooseProfilePicturePage /> */ } <
+        ChooseProfilePicturePage / >
+        </div>
+    );
 }
 
 export default App;

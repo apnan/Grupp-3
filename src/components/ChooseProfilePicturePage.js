@@ -43,7 +43,6 @@ const ChooseProfilePicturePage = () => {
     });
   }, []);
 
-  /* ********************************************************************************************* */
   const [morePictures, setMorePictures] = useState(false);
   const moreImagesListRef = ref(storage, 'moreImages/');
   const [moreImageUpload, setMoreImageUpload] = useState(null);
@@ -76,7 +75,6 @@ const ChooseProfilePicturePage = () => {
     });
   };
 
-  /* ************************************************************************************************ */
   return (
     <div className="container">
       <h1 className="h1-text">Choose a profile picture:</h1>
@@ -107,7 +105,7 @@ const ChooseProfilePicturePage = () => {
             {moreImageUrls.map((url) => {
               return (
                 <img
-                  key={url}
+                  key={url} /* ?????????????????????  */
                   src={url}
                   alt="firebase"
                   className="profilePicture"
