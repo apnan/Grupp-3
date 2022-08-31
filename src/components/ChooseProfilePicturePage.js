@@ -4,19 +4,18 @@ import { v4 } from 'uuid';
 import { storage } from '../firebase.js';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import Modal from 'react-modal';
-/* import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography'; */
+import Modal from './Modal.js';
 import Fade from 'react-reveal/Fade';
-import Zoom from 'react-reveal/Zoom';
 
 const ChooseProfilePicturePage = () => {
   const [open, setOpen] = useState(false);
-  const handleOpen = () => {
-    setOpen(true);
+  const toggleModal = () => {
+    if (open === false) {
+      setOpen(true);
+    } else {
+      setOpen(false);
+    }
   };
-  const handleClose = () => setOpen(false);
 
   const [imageUpload, setImageUpload] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
@@ -24,10 +23,7 @@ const ChooseProfilePicturePage = () => {
 
   const uploadImage = () => {
     if (imageUpload == null) return;
-    const imageRef = ref(
-      storage,
-      `images/${imageUpload.name + v4()}`
-    ); /* v4 -randomized LETTERS */
+    const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
 
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       /* uploadFiles - first argument is WHERE you want to upload, second one - WHAT */
@@ -70,7 +66,7 @@ const ChooseProfilePicturePage = () => {
     const moreImageRef = ref(
       storage,
       `moreImages/${moreImageUpload.name + v4()}`
-    ); /* v4 -randomized LETTERS */
+    );
 
     uploadBytes(moreImageRef, moreImageUpload).then((snapshot) => {
       /* uploadFiles - first argument is WHERE you want to upload, second one - WHAT */
@@ -91,35 +87,17 @@ const ChooseProfilePicturePage = () => {
             <Fade bottom cascade className="fade-container" key={url}>
               <img
                 onClick={() => {
-                  handleOpen(true);
+                  toggleModal();
                   setModalData(url);
                 }}
                 src={url}
                 alt="firebase"
                 className="profilePicture"
               />
-              <Modal
-                isOpen={open}
-                onRequestClose={handleClose}
-                src={url}
-                className="modal"
-                ariaHideApp={false}
-              >
-                <Zoom>
-                  <img
-                    key={url}
-                    src={modalData}
-                    alt="firebase"
-                    className="modalPicture"
-                  />
-                  <button onClick={handleClose} className="x">
-                    X
-                  </button>
-                </Zoom>
-              </Modal>
             </Fade>
           );
         })}
+        {open && <Modal modalData={modalData} handleClose={toggleModal} />}
       </div>
       <div className="morePictures">
         {!morePictures ? (
@@ -129,7 +107,7 @@ const ChooseProfilePicturePage = () => {
             {moreImageUrls.map((url) => {
               return (
                 <img
-                  key={url} /* ?????????????????????  */
+                  key={url}
                   src={url}
                   alt="firebase"
                   className="profilePicture"

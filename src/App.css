@@ -5,6 +5,7 @@
 }
  .container{
   background-color: rgb(20, 20, 20);
+  
   display:grid;
   grid-template-columns: repeat(12,1fr);
  }
@@ -17,11 +18,10 @@
   margin-left:10%;
   margin-right: 10%;
   padding:5%;
-  display:grid;
-  grid-template-columns: repeat(12,1fr);
+  
  }
  .fade-container{
-  grid-column: 1/13;
+  position:absolute;
  }
  .profilePicture{
   width:100px;
@@ -47,16 +47,23 @@
   border: none;
  }
  .modalPicture{
-  width: 290px;
-  max-height: 350px;
+  justify-self: center;
+  width: 250px;
+  height: 250px;
  }
  .modal{
-  border:2px solid black;
-  display:flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
- } 
+  width:90%; 
+  height: 50%;
+  background-color: rgb(76, 76, 72, .9);
+  opacity: 60%;
+  z-index:100;
+  position: relative;
+  display: flex;
+  bottom: 62%;
+  padding: 5%;
+  
+  
+ }  
  .x{
 align-self: start;
  }
