@@ -88,7 +88,7 @@ const ChooseProfilePicturePage = () => {
         {imageUrls.map((url) => {
           console.log(url);
           return (
-            <Fade bottom cascade className="fade-container">
+            <Fade bottom cascade className="fade-container" key={url}>
               <img
                 onClick={() => {
                   handleOpen(true);
@@ -103,6 +103,7 @@ const ChooseProfilePicturePage = () => {
                 onRequestClose={handleClose}
                 src={url}
                 className="modal"
+                ariaHideApp={false}
               >
                 <Zoom>
                   <img
