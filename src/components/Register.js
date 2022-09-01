@@ -10,12 +10,10 @@ export default function Form() {
 
   return (
    <section>
-    <div className='register'>
-        <div className='col-1'>
+    <div className="content">
+            <form id='form' className='flex-col'onSubmit={handleSubmit(onSubmit)} >
             <h2>Sign In</h2>
             <span>Register and enjoy the game</span>
-            <form id='form' className='flex flex-col'onSubmit={handleSubmit(onSubmit)} >
-                
                 <input type='text'{...register("username",{required:true})} placeholder='username'></input>
                 {errors.username?.type==="required"&&"Username is required"}
 
@@ -28,10 +26,10 @@ export default function Form() {
                 <input type='text' {...register("email",{required:true})}placeholder='Email'></input>
                 {errors.email?.type==="required"&&"Email is required"}
              
-                <button className='btn'>Sign In</button>
+                <button className='btn'onClick={() => window.location.reload(false)}>Sign In</button>
             </form>
         </div>
-    </div>
+    
    </section>
   )
 }
