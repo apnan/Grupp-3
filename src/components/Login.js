@@ -12,8 +12,9 @@ const Login = () => {
 
   return (
     <div className="content">
-      <h1>Log In</h1>
       <form id="login_form" className="login-form">
+        <h1>Log In</h1>
+
         <div className="form_div">
           <label>Email:</label>
           <input
@@ -22,7 +23,7 @@ const Login = () => {
             type="text"
             placeholder="Enter email"
             value={email}
-            onChange={(e)=>setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <label>Password:</label>
           <input
@@ -32,18 +33,19 @@ const Login = () => {
             type="password"
             placeholder="Enter pssword"
             value={password}
-            onChange={(e)=>setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
-          <div>
-            <button type="submit" onSubmit={submitHandler}>submit</button>
-          </div>
+            <button type="submit" onSubmit={submitHandler}>
+              submit
+            </button>
         </div>
-      </form>
       <div className="register-text">
         <p>
           Not a user? Register <a href="register">Here</a>
         </p>
       </div>
+            </form>
+
     </div>
   );
 
