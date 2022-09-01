@@ -1,23 +1,26 @@
-import './App.css' ;
+import './App.css';
 import Dashboard from './components/Dashboard';
-import Login from "./components/Login";
-
-// import ChooseProfilePicturePage from  './screens/ChooseProfilePicturePage';
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import Login from './components/Login';
+import Gameapp from './components/Gameapp';
+import ScoreBoard from './components/ScoreBoard';
 import ChooseProfilePicturePage from './components/ChooseProfilePicturePage';
-
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 function App() {
   return (
     <div className="wrapper">
+      {/* <h1>Application</h1> */}
       <Router>
         <Switch>
-          <Route path ='/' component={Dashboard} exact/>
-          <Route path="/login" component={Login}  exact/> 
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
         </Switch>
       </Router>
-      {/* <ChooseProfilePicturePage /> */}
-      <ChooseProfilePicturePage/>
+      <Login />
+      <Gameapp/>
+      <ScoreBoard/>
+      <ChooseProfilePicturePage />
     </div>
   );
 }
