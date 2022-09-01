@@ -1,18 +1,25 @@
 
 
 .app {
-    display: flex;
-    padding: 30px;
+    display:flex;
+
+    align-self:center;
+    align-items: center;
+   
   }
   
   .game {
     width: 560px;
     height: 560px;
-    display: flex;
+    padding: 20%;
     flex-wrap: wrap;
+    align-self:center;
+    align-items: center;
+    
   }
   
   .game img {
+      
     width: 70px;
-    height: 70px;
+   
   }
