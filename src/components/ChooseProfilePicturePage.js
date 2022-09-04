@@ -74,6 +74,7 @@ const ChooseProfilePicturePage = () => {
       });
     });
   };
+  
 
   return (
     <div className="container">
@@ -125,6 +126,7 @@ const ChooseProfilePicturePage = () => {
         />
         <button onClick={uploadImage}>Upload file</button>
       </div>
+      
     </div>
   );
 };

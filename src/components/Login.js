@@ -1,18 +1,45 @@
 import React, { useState } from "react";
+import axios from   "axios"
 import "./login.css";
+import { updateLoggedIn } from "./context/ProtectedRoutes";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+   const navigate = useNavigate();
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
-  const submitHandler = (e) => {
+  const submitHandler = async(e) => {
     e.preventDefault()
+    try {
+      const config = {
+        headers: {
+          "Content-type":"application/json"
+        }
+      }
+      setLoading(true)
+     // const  data = await axios.post('http://localhost:3000/api/login', {
+     //   email, password
+     // }, config);
+      const data = {"firstName": "Bhavani", "lastName": "Marthala" }
+      console.log(data)
+      updateLoggedIn()
+      navigate("/profile");
+      localStorage.setItem('userInfo', JSON.stringify(data))
+    }
+    catch (err) {
+      setError(err.response.data.message)
+      
+    }
+    
+    
+    
   }
 
   return (
     <div className="content">
-      <form id="login_form" className="login-form">
+      <form id="login_form" className="login-form" onSubmit ={submitHandler}>
         <h1>Log In</h1>
 
         <div className="form_div">
@@ -35,7 +62,7 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-            <button type="submit" onSubmit={submitHandler}>
+            <button type="submit" onSubmit={submitHandler} >
               submit
             </button>
         </div>
@@ -44,7 +71,7 @@ const Login = () => {
           Not a user? Register <a href="register">Here</a>
         </p>
       </div>
-            </form>
+    </form>
 
     </div>
   );
