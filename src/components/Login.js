@@ -39,8 +39,9 @@ const Login = () => {
 
   return (
     <div className="content">
-      <form id="login_form" className="login-form" onSubmit ={submitHandler}>
+      <form id="login_form" className="login-form" onSubmit={submitHandler}>
         <h1>Log In</h1>
+        
 
         <div className="form_div">
           <label>Email:</label>
@@ -62,17 +63,16 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-            <button type="submit" onSubmit={submitHandler} >
-              submit
-            </button>
+          <button type="submit" onSubmit={submitHandler}>
+            submit
+          </button>
         </div>
-      <div className="register-text">
-        <p>
-          Not a user? Register <a href="register">Here</a>
-        </p>
-      </div>
-    </form>
-
+        <div className="register-text">
+          <p>
+            Not a user? Register <a href="register">Here</a>
+          </p>
+        </div>
+      </form>
     </div>
   );
 
