@@ -9,27 +9,50 @@ export default function Form() {
    const onSubmit =data=>console.log(data);
 
   return (
-   <section>
-    <div className="content">
-            <form id='form' className='flex-col'onSubmit={handleSubmit(onSubmit)} >
-            <h2>Sign In</h2>
-            <span>Register and enjoy the game</span>
-                <input type='text'{...register("username",{required:true})} placeholder='username'></input>
-                {errors.username?.type==="required"&&"Username is required"}
+    <section>
+      <div className="content">
+        <form id="form" className="flex-col" onSubmit={handleSubmit(onSubmit)}>
+          <h2>Sign In</h2>
+          <span>Register and enjoy the game</span>
+          <input
+            type="text"
+            {...register("username", { required: true })}
+            placeholder="username"
+          ></input>
+          {errors.username?.type === "required" && "Username is required"}
 
-                <input type='text'{...register("password",{required:true})} placeholder='password'></input>
-                {errors.password?.type==="required"&&"Password is required"}
+          <input
+            type="text"
+            {...register("password", { required: true })}
+            placeholder="password"
+          ></input>
+          {errors.password?.type === "required" && "Password is required"}
 
-                <input type='text'{...register("confirmpwd",{required:true})} placeholder='confirm password'></input>
-                {errors.confirmpwd?.type==="required"&&"Confirm password  is required"}
+          <input
+            type="text"
+            {...register("confirmpwd", { required: true })}
+            placeholder="confirm password"
+          ></input>
+          {errors.confirmpwd?.type === "required" &&
+            "Confirm password  is required"}
 
-                <input type='text' {...register("email",{required:true})}placeholder='Email'></input>
-                {errors.email?.type==="required"&&"Email is required"}
-             
-                <button className='btn'onClick={() => window.location.reload(false)}>Sign In</button>
-            </form>
-        </div>
-    
-   </section>
-  )
+          <input
+            type="text"
+            {...register("email", { required: true })}
+            placeholder="Email"
+          ></input>
+          {errors.email?.type === "required" && "Email is required"}
+
+          <button className="btn" onClick={() => window.location.reload(false)}>
+            Sign In
+          </button>
+          <div className="register-text">
+            <p>
+            Already user? Login <a href="login">Here</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
+  );
 }
