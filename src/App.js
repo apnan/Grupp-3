@@ -8,6 +8,7 @@ import Profile from './components/Profile';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProtectedRoutes from './components/context/ProtectedRoutes';
 import Navbar from './components/Navbar';
+import Signin from "./components/Signin";
 
 function App() {
 
@@ -18,7 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/signin" element={<Signin />} />
         <Route element={<ProtectedRoutes />}>
           <Route path="/profile" element={<Profile />} />
         </Route>
