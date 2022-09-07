@@ -1,9 +1,6 @@
 import './App.css';
-// import Dashboard from './components/Dashboard';
-import Register from './components/Register'
 import Login from './components/Login';
-// import Gameapp from './components/Gameapp';
-// import ScoreBoard from './components/ScoreBoard';
+
 import Profile from './components/Profile';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProtectedRoutes from './components/context/ProtectedRoutes';

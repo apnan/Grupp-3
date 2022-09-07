@@ -1,80 +1,113 @@
-import React, { useState } from "react";
-import axios from   "axios"
+import React from "react";
+import { useState } from "react";
+import LoginValidation from "./LoginValidation";
 import "./login.css";
-import { updateLoggedIn } from "./context/ProtectedRoutes";
 import { useNavigate } from "react-router-dom";
+import { updateLoggedIn } from "./context/ProtectedRoutes";
 
-const Login = () => {
-   const navigate = useNavigate();
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const submitHandler = async(e) => {
-    e.preventDefault()
-    try {
-      const config = {
-        headers: {
-          "Content-type":"application/json"
-        }
+const Login = ({ handleLogin }) => {
+  const initState = {
+    userName: "",
+    password: "",
+  };
+
+  const navigate = useNavigate();
+
+  const [user, setUser] = useState(initState);
+  const [errors, setErrors] = useState({});
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const validationErrors = LoginValidation(user);
+
+    setErrors(validationErrors);
+
+    if (validationErrors.hasErrors) {
+      return;
+    }
+
+    //User rest endpoint to post user details to register
+    const response = await fetch("http://localhost:3000/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+
+    if (!response.ok) {
+      if (response.status === 404) {
+        setErrors({ error: "Please register if you are already not a user" });
+      } else {
+        setErrors({ error: "Something went wrong" });
       }
-      setLoading(true)
-     // const  data = await axios.post('http://localhost:3000/api/login', {
-     //   email, password
-     // }, config);
-      const data = {"firstName": "Bhavani", "lastName": "Marthala" }
-      console.log(data)
-      updateLoggedIn()
+    }
+
+    if (response.ok) {
+      const body = await response.json();
+      updateLoggedIn();
       navigate("/profile");
-      localStorage.setItem('userInfo', JSON.stringify(data))
     }
-    catch (err) {
-      setError(err.response.data.message)
-      
-    }
-    
-    
-    
+
+    setUser(initState);
   }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setUser({
+      ...user,
+      [name]: value,
+    });
+  };
 
   return (
     <div className="content">
-      <form id="login_form" className="login-form" onSubmit={submitHandler}>
-        <h1>Log In</h1>
-        
+      <form id="login_form" className="login-form">
+        <h1>Login</h1>
 
+        {errors.error && <p className="error">{errors.error}</p>}
+
+        {errors.userName && <p className="error">{errors.userName}</p>}
         <div className="form_div">
-          <label>Email:</label>
+          <label>username:</label>
           <input
             className="input-text"
             name="userName"
             type="text"
-            placeholder="Enter email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={user.userName}
+            onChange={handleChange}
           />
+
+          {errors.password && <p className="error">{errors.password}</p>}
           <label>Password:</label>
           <input
             id="pass"
             className="input-text"
             name="password"
             type="password"
-            placeholder="Enter pssword"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={user.password}
+            onChange={handleChange}
           />
-          <button type="submit" onSubmit={submitHandler}>
-            submit
+
+          <button
+            className="submit-btn"
+            type="submit"
+            form="login_form"
+            onClick={handleSubmit}
+          >
+            Login
           </button>
         </div>
+
         <div className="register-text">
           <p>
-            Not a user? Register <a href="register">Here</a>
+            Not a user? Register <a href="signin">Here</a>
           </p>
         </div>
       </form>
     </div>
   );
+};
 
-}
 export default Login;
