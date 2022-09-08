@@ -26,13 +26,13 @@ const Login = ({ handleLogin }) => {
       return;
     }
 
-    //User rest endpoint to post user details to register
-    const response = await fetch("http://localhost:3000/api/login", {
+    //User rest endpoint to post user 
+    const response = await fetch("http://localhost:3000/api/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(user),
+      body: JSON.stringify(user)
     });
 
     if (!response.ok) {
@@ -45,8 +45,12 @@ const Login = ({ handleLogin }) => {
 
     if (response.ok) {
       const body = await response.json();
-      updateLoggedIn();
-      navigate("/profile");
+      if (body.length !== 0) {
+        updateLoggedIn();
+        navigate("/profile");
+      } else {
+        setErrors({ error: "No user found...." });
+      }
     }
 
     setUser(initState);

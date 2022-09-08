@@ -34,3 +34,10 @@ label{
     box-shadow: 2px 2px 5px rgb(0, 0, 0 ,0.2);
     cursor: pointer;
 }
+.avatar {
+  vertical-align: middle;
+  
+  
+ width: '8rem'; 
+ height: '8rem';
+}

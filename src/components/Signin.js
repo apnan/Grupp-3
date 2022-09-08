@@ -25,12 +25,13 @@ const Signin = () => {
       //
       event.preventDefault();
       setErrors({});
+      
       const validationErrors = RegValidation(values);
       setErrors(validationErrors);
       if (validationErrors.hasErrors) {
         return;
       }
-      const response = await fetch("http://localhost:3000/api/signin", {
+      const response = await fetch("http://localhost:3000/api/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,8 +40,11 @@ const Signin = () => {
       });
       if (!response.ok) {
         let data = await response.json();
-        setErrors({ msg: data.msg });
+        console.log(data)
+         console.log(" I am heree");
+        setErrors({ msg: data.message });
       } else {
+        
         setValues({ ...values, registeredStatus: true });
       }
     };
@@ -72,7 +76,8 @@ const Signin = () => {
                     className="input-text"
                     placeholder="User Name"
                     value={values.userName}
-                    onChange={handleChange}
+                      onChange={handleChange}
+                  
                     autoComplete="off"
                   ></input>
 
