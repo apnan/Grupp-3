@@ -1,4 +1,40 @@
 
+## travel-crasher
+
+
+
+
+
+
+
+
+
+Go to the project directory
+
+```bash
+  cd travel-crasher
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
+git-lek
+```bash
+ public class MyClass {
+  public static void main(String[] args){
+  }
+}
+```
+
+
 ```mermaid
 sequenceDiagram
     participant User
