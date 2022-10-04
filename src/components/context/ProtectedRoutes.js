@@ -9,6 +9,7 @@ const useAuth = () => {
 export const updateLoggedIn = () => {
     console.log('Update logged in');
   loggedIn = !loggedIn;
+ // loggedIn = true;
   console.log(loggedIn)
 }
 const ProtectedRoutes = () => {
