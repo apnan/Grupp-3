@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import '../topbar/topbar.css';
 import { useSelector, useDispatch } from 'react-redux';
-import store from '../../store/store';
 import { toLoggeOut } from '../../store/userSlices';
 export default function Topbar() {
   const dispatch = useDispatch();
@@ -22,7 +21,11 @@ export default function Topbar() {
               HOME
             </Link>
           </li>
-          <li className="topListItem">CONTACT</li>
+          <li className="topListItem">
+            <Link className="link" to="/game">
+              GAME
+            </Link>
+          </li>
 
           {user && (
             <li className="topListItem" onClick={() => dispatch(toLoggeOut())}>
@@ -33,7 +36,7 @@ export default function Topbar() {
       </div>
       <div className="topRight">
         {user ? (
-          <Link className="link" to="/settings">
+          <Link className="link" to="/profile">
             <img
               className="topImg"
               src="https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"

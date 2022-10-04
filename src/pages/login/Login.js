@@ -5,7 +5,7 @@ import './login.css';
 import { useNavigate } from 'react-router-dom';
 // import { updateLoggedIn } from "./context/ProtectedRoutes";
 import { updateLoggedIn } from '../../components/context/ProtectedRoutes';
-import { toLoggeIn, toLoggeOut } from '../../store/userSlices';
+import { toLoggeIn } from '../../store/userSlices';
 import { useDispatch } from 'react-redux';
 
 const Login = ({ handleLogin }) => {
@@ -54,15 +54,15 @@ const Login = ({ handleLogin }) => {
     if (response.ok) {
       const body = await response.json();
       if (body.length !== 0) {
-        updateLoggedIn();
+        /* updateLoggedIn(); */
         navigate('/profile');
+        dispatch(toLoggeIn());
       } else {
         setErrors({ error: 'No user found....' });
       }
     }
 
     setUser(initState);
-    dispatch(toLoggeIn());
   }
 
   const handleChange = (e) => {
