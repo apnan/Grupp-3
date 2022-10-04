@@ -1,8 +1,12 @@
-import { Link } from "react-router-dom";
-import "../topbar/topbar.css";
-
+import { Link } from 'react-router-dom';
+import '../topbar/topbar.css';
+import { useSelector, useDispatch } from 'react-redux';
+import store from '../../store/store';
+import { toLoggeOut } from '../../store/userSlices';
 export default function Topbar() {
-  const user = true;
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.isLoggedIn);
+  /* let user = false; */
   return (
     <div className="top">
       <div className="topLeft">
@@ -19,8 +23,12 @@ export default function Topbar() {
             </Link>
           </li>
           <li className="topListItem">CONTACT</li>
-         
-          {user && <li className="topListItem">LOGOUT</li>}
+
+          {user && (
+            <li className="topListItem" onClick={() => dispatch(toLoggeOut())}>
+              LOGOUT
+            </li>
+          )}
         </ul>
       </div>
       <div className="topRight">

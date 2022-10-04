@@ -1,15 +1,19 @@
-import React from "react";
-import { useState } from "react";
-import LoginValidation from "./LoginValidation";
-import "./login.css";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { useState } from 'react';
+import LoginValidation from './LoginValidation';
+import './login.css';
+import { useNavigate } from 'react-router-dom';
 // import { updateLoggedIn } from "./context/ProtectedRoutes";
-import { updateLoggedIn } from "../../components/context/ProtectedRoutes";
+import { updateLoggedIn } from '../../components/context/ProtectedRoutes';
+import { toLoggeIn, toLoggeOut } from '../../store/userSlices';
+import { useDispatch } from 'react-redux';
 
 const Login = ({ handleLogin }) => {
+  const dispatch = useDispatch();
+
   const initState = {
-    userName: "",
-    password: "",
+    userName: '',
+    password: '',
   };
 
   const navigate = useNavigate();
@@ -27,13 +31,13 @@ const Login = ({ handleLogin }) => {
       return;
     }
 
-    //User rest endpoint to post user 
+    //User rest endpoint to post user
     const response = await fetch(
-      "https://grupp-3-backend.herokuapp.com/api/users/login",
+      'https://grupp-3-backend.herokuapp.com/api/users/login',
       {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(user),
       }
@@ -41,9 +45,9 @@ const Login = ({ handleLogin }) => {
 
     if (!response.ok) {
       if (response.status === 404) {
-        setErrors({ error: "Please register if you are already not a user" });
+        setErrors({ error: 'Please register if you are already not a user' });
       } else {
-        setErrors({ error: "Something went wrong" });
+        setErrors({ error: 'Something went wrong' });
       }
     }
 
@@ -51,13 +55,14 @@ const Login = ({ handleLogin }) => {
       const body = await response.json();
       if (body.length !== 0) {
         updateLoggedIn();
-        navigate("/profile");
+        navigate('/profile');
       } else {
-        setErrors({ error: "No user found...." });
+        setErrors({ error: 'No user found....' });
       }
     }
 
     setUser(initState);
+    dispatch(toLoggeIn());
   }
 
   const handleChange = (e) => {
