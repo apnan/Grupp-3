@@ -6,8 +6,9 @@
 }
 
 .postImg {
-  width: 385px;
+  width: 350px;
   height: 280px;
+  display:flex;
   object-fit: cover;
   border-radius: 7px;
 }
