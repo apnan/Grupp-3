@@ -7,7 +7,7 @@ import Signin from './pages/signin/Signin';
 import Login from './pages/login/Login';
 import Topbar from './components/topbar/Topbar';
 import Homepage from './pages/homepage/HomePage';
-import Game from './components/Gameapp';
+import Gameapp from './components/Gameapp';
 
 function App() {
   return (
@@ -24,10 +24,10 @@ function App() {
         <Route path="/signin" element={<Signin />} />
 
         <Route element={<ProtectedRoutes />}>
-          <Route path="/game" element={<Game />} />
+          <Route path="/gameapp" element={<Gameapp />} />
         </Route>
         <Route element={<ProtectedRoutes />}>
-          <Route path="/profile" element={<Settings />} />
+          <Route path="/profile" element={<Gameapp/>} />
         </Route>
       </Routes>
     </Router>

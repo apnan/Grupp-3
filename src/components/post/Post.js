@@ -10,6 +10,7 @@ export default function Post({ img }) {
           <span className="postCat">
             <Link className="link" to="/posts?cat=Music">
               Entertainment
+              
             </Link>
           </span>
           <span className="postCat">
