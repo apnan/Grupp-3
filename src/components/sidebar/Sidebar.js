@@ -5,7 +5,7 @@ export default function Sidebar() {
   const user = useSelector((state) => state.isLoggedIn);
   return (
     <div className="sidebar">
-      {user && (
+      {!user && (
         <div className="sidebarItem">
           <span className="sidebarTitle">Try Our Game</span>
           <img src={Picture} alt="game pic" />
