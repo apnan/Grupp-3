@@ -5,7 +5,6 @@ import { toLoggeOut } from '../../store/userSlices';
 export default function Topbar() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.isLoggedIn);
-  /* let user = false; */
   return (
     <div className="top">
       <div className="topLeft">
