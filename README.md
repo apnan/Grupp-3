@@ -1,24 +1,14 @@
 
 ## lorem-crasher
 
-
-
-
-
-
-
-
-
-Go to the project directory
+Create React App
 
 ```bash
-  cd lorem-crasher
+ npx create-react-app lorem-crasher
 ```
 
-Install dependencies
-
 ```bash
-  npm install
+cd my-app
 ```
 
 Start the server
@@ -26,14 +16,28 @@ Start the server
 ```bash
   npm run start
 ```
-git-lek
-```bash
- public class MyClass {
-  public static void main(String[] args){
-  }
-}
-```
 
+## Install the Heroku CLI
+```bash
+npm install -g heroku
+  ```
+ ## Deploy application to Heroku
+```bash
+  git add .
+  ```
+  ```bash
+git commit -m "Added a Procfile."
+```
+```bash
+heroku login
+```
+```bash
+heroku create
+```
+```bash
+git push heroku main
+
+```
 
 ```mermaid
 sequenceDiagram
