@@ -1,5 +1,5 @@
 
-## travel-crasher
+## lorem-crasher
 
 
 
@@ -12,7 +12,7 @@
 Go to the project directory
 
 ```bash
-  cd travel-crasher
+  cd lorem-crasher
 ```
 
 Install dependencies
