@@ -7,6 +7,8 @@ import redCandy from './images/red-candy.png';
 import yellowCandy from './images/yellow-candy.png';
 import blank from './images/blank.png';
 import './gameapp.css';
+import Footer from './Footer/Footer';
+
 
 const width = 8;
 const candyColors = [
@@ -236,6 +238,10 @@ const Game = () => {
             onDragEnd={dragEnd}
           />
         ))}
+      </div>
+      <div>
+        {" "}
+        <Footer />
       </div>
       {/* <ScoreBoard score={scoreDisplay} /> */}
     </div>
