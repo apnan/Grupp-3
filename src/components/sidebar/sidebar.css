@@ -53,13 +53,7 @@
   cursor: pointer;
 }
 
-.sidebarSocial {
-  margin-top: 15px;
-  width: 250px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 
 .sidebarIcon {
   font-size: 16px;
