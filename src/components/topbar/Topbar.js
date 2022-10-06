@@ -2,12 +2,15 @@ import { Link } from 'react-router-dom';
 import '../topbar/topbar.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { toLoggeOut } from '../../store/userSlices';
+import Gif3 from '../images/logo.gif';
+
 export default function Topbar() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.isLoggedIn);
   return (
     <div className="top">
       <div className="topLeft">
+      <img className='logo' src={Gif3} alt=""/>
         <i className="topIcon fab fa-facebook-square"></i>
         <i className="topIcon fab fa-instagram-square"></i>
         <i className="topIcon fab fa-pinterest-square"></i>
